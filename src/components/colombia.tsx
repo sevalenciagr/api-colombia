@@ -39,7 +39,7 @@ export default function GetColombianData() {
             <li className="list-group-item">Population: {data.population}</li>
             <li className="list-group-item">Currency: {data.currency}</li>
             <li className="list-group-item">TimeZone: {data.timeZone}</li>
-          </ul>
+        </ul>
         </div>
       </div>
     </div>
