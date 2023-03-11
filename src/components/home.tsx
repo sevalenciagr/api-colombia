@@ -7,7 +7,7 @@ export default function Home() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
         <a className="navbar-brand" href="#">
-          <img src="https://www.svgrepo.com/show/242329/colombia.svg" alt="Colombia" width="30" height="24"/>
+          <img src="https://www.svgrepo.com/show/242329/colombia.svg" alt="Colombia" style={{ width: '80px',height:'50px' }}/>
         </a>
       <ul className="navbar-nav mb-2 mb-lg-0">
         <li className="nav-item">

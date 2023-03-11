@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { Colombia } from '../interfaces/colombia';
+import React, { useEffect, useState } from "react";
+import { Colombia } from "../interfaces/colombia";
 
 export default function GetColombianData() {
-  const [data, setData] = useState<Colombia | null>(null);
+  const [data, setData] = useState<Colombia>();
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://api-colombia.com/api/v1/Country/Colombia');
+      const response = await fetch(
+        "https://api-colombia.com/api/v1/Country/Colombia"
+      );
       const data = await response.json();
       setData(data);
     }
@@ -18,15 +20,28 @@ export default function GetColombianData() {
     return <div>Cargando...</div>;
   }
   return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>Código ISO: {data.isoCode}</p>
-      <p>Capital: {data.stateCapital}</p>
-      <p>Moneda: {data.currency}</p>
-      <p>Población: {data.population}</p>
-      <p>Idiomas: {data.languages.join(', ')}</p>
-      {/* Agrega más campos según los datos que quieras mostrar */}
+    <div className="card">
+      <div className="card-body row ">
+       
+        <div className="col">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag-map_of_Colombia.svg/1502px-Flag-map_of_Colombia.svg.png"
+          className="img-fluid"
+          alt="..."
+        />
+        </div>
+        <div className="col d-flex align-items-center">
+        <ul className="list-group list-group-flush">
+            <li className="list-group-item">Description: {data.description}</li>
+            <li className="list-group-item">
+              Languages: {data.languages.join(", ")}
+            </li>
+            <li className="list-group-item">Population: {data.population}</li>
+            <li className="list-group-item">Currency: {data.currency}</li>
+            <li className="list-group-item">TimeZone: {data.timeZone}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    
-  )
+  );
 }
