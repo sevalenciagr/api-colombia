@@ -22,24 +22,30 @@ export default function GetTouristData() {
   }
   
   return (
-    <ul className="list-group list-group-flush">
-      
+    <div className="row row-cols-1 row-cols-md-3 g-4 mt-5 p-4">
       {data.map((item) => (
-      
-      <div className="d-inline-flex p-2">
-        <div className="card" style={{width:'18rem'}}>
-          <img className="card-img-top w-100 h-100" src={item.images[0]} alt={item.name} />
-          <div className="card-body">
-            <h5 className="card-title">{item.name}</h5>
-            <p className="card-text">Latitude: {item.latitude} Longitude: {item.longitude}</p>
+        <div className="col mb-4" key={item.id}>
+          <div className="card h-100">
+            <img
+              className="card-img-top"
+              src={item.images[0]}
+              alt={item.name}
+              style={{ maxHeight: "200px", objectFit: "cover" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">{item.name}</h5>
+              <h6 className="card-text ">
+                {" "}
+                Latitude:<span className="text-muted">
+                  {" "}
+                  {item.latitude}
+                </span>{" "}
+                Longitude: <span className="text-muted">{item.longitude}</span>{" "}
+              </h6>
+            </div>
           </div>
         </div>
-      </div>  
       ))}
-        
-    </ul>
-    
-    
-    
-  );
+    </div>
+  );
 }
