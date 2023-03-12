@@ -3,7 +3,7 @@ import { Ciudad, DeparmentResponse, Department } from "../interfaces/deparment";
 
 export default function DepartmentsData() {
   const [data, setData] = useState<Department[]>();
-  const [cuidades,setCiudades] = useState<Ciudad>();
+  // const [cuidades,setCiudades] = useState<Ciudad>();
 
 
   useEffect(() => {

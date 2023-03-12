@@ -1,10 +1,10 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Home from "./components/home";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Departments from "./components/deparments";
-import Tourists from "./components/Tourists";
+import Tourists from "./components/tourists";
+import Cities from "./components/cities";
 import Presidents from "./components/presidents";
 import Colombia from "./components/colombia";
 
@@ -27,6 +27,9 @@ function App() {
           </Route>
           <Route path="/tourists" element={<Tourists />}>
             <Route path=":slug" element={<Tourists />} />
+          </Route>
+          <Route path="/cities" element={<Cities />}>
+            <Route path=":slug" element={<Cities />} />
           </Route>
           <Route path="/presidents" element={<Presidents />}>
             <Route path=":slug" element={<Presidents />} />

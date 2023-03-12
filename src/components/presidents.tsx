@@ -22,8 +22,6 @@ export default function GetPresidentData() {
     <ul className="list-group list-group-flush">
       
       {data.map((item) => (
-        // <li className="list-group-item" key={item.id}>{item.name}
-        // </li>
       <div className="card">
       <div className="card-body row ">
         <div className="col d-flex align-items-center">

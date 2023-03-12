@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Tourist } from "../interfaces/tourist";
+import "tourist.css";
+
 
 export default function GetTouristData() {
   const [data, setData] = useState<Tourist[]>();
@@ -23,10 +25,15 @@ export default function GetTouristData() {
     <ul className="list-group list-group-flush">
       
       {data.map((item) => (
-      <div className="card" style={{width:'25rem'}}>
-        <li className="list-group-item card-img-top"><img src={item.images[0]} alt={item.name} /></li>
-        <h5 className="list-group-item card-title">{item.name}</h5>
-        <li className="list-group-item card-text">Latitude: {item.latitude} Longitude: {item.longitude}</li>
+      
+      <div className="deparments">
+        <div className="card" style={{width:'18rem'}}>
+          <img className="card-img-top w-100 h-100" src={item.images[0]} alt={item.name} />
+          <div className="card-body">
+            <h5 className="card-title">{item.name}</h5>
+            <p className="card-text">Latitude: {item.latitude} Longitude: {item.longitude}</p>
+          </div>
+        </div>
       </div>
       ))}
       
