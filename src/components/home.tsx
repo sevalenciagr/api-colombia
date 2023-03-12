@@ -1,5 +1,3 @@
-import React from 'react'
-import Departments from './deparments'
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -15,12 +13,15 @@ export default function Home() {
         </li>
         <li className="nav-item">
             <Link to="/departments" className="nav-link">Departments</Link>
-          </li>
-        <li className="nav-item">
-        <Link to="/tourists" className="nav-link">Tourists</Link>
         </li>
         <li className="nav-item">
-        <Link to="/presidents" className="nav-link">Presidents</Link>
+            <Link to="/cities" className="nav-link">Cities and Towns</Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/tourists" className="nav-link">Tourists</Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/presidents" className="nav-link">Presidents</Link>
         </li>
       </ul>
       </div>

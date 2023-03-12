@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Ciudad, DeparmentResponse, Department } from "../interfaces/deparment";
 
 export default function DepartmentsData() {
@@ -26,13 +26,13 @@ export default function DepartmentsData() {
   }, []);
 
   if (!data) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
   return (
     <div className="deparments">
       
       {data.map((item) => (
-        <div className="card" key={item.id}>Deparment:{item.name}
+        <div className="card" key={item.id}>{item.name}
         </div>
       ))}
       

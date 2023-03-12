@@ -17,7 +17,7 @@ export default function GetColombianData() {
   }, []);
 
   if (!data) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
   return (
     <div className="card">
@@ -27,7 +27,7 @@ export default function GetColombianData() {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag-map_of_Colombia.svg/1502px-Flag-map_of_Colombia.svg.png"
           className="img-fluid"
-          alt="..."
+          alt="Image Colombia"
         />
         </div>
         <div className="col d-flex align-items-center">
