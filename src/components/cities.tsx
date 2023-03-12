@@ -27,7 +27,6 @@ export default function GetPresidentData() {
       {data.map((item) => (
         <Col key={item.id} sm={6} md={4} lg={3}>
           <div className="card border-primary mb-3">
-            <div className="card-header">{item.id}</div>
             <div className="card-body">
               <h5 className="card-title">{item.name}</h5>
             </div>
