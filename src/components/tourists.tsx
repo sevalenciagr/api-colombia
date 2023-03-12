@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tourist } from "../interfaces/tourist";
-import "tourist.css";
+
 
 
 export default function GetTouristData() {
@@ -26,7 +26,7 @@ export default function GetTouristData() {
       
       {data.map((item) => (
       
-      <div className="deparments">
+      <div className="d-inline-flex p-2">
         <div className="card" style={{width:'18rem'}}>
           <img className="card-img-top w-100 h-100" src={item.images[0]} alt={item.name} />
           <div className="card-body">
@@ -34,9 +34,9 @@ export default function GetTouristData() {
             <p className="card-text">Latitude: {item.latitude} Longitude: {item.longitude}</p>
           </div>
         </div>
-      </div>
+      </div>  
       ))}
-      
+        
     </ul>
     
     
