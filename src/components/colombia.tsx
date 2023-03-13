@@ -32,13 +32,11 @@ export default function GetColombianData() {
         </div>
         <div className="col d-flex align-items-center">
         <ul className="list-group list-group-flush">
-            <li className="list-group-item">Description: {data.description}</li>
-            <li className="list-group-item">
-              Languages: {data.languages.join(", ")}
-            </li>
-            <li className="list-group-item">Population: {data.population}</li>
-            <li className="list-group-item">Currency: {data.currency}</li>
-            <li className="list-group-item">TimeZone: {data.timeZone}</li>
+            <li className="list-group-item"><strong>Description:</strong> {data.description}</li>
+            <li className="list-group-item"><strong>Languages:</strong> {data.languages.join(", ")}</li>
+            <li className="list-group-item"><strong>Population:</strong> {data.population}</li>
+            <li className="list-group-item"><strong>Currency:</strong> {data.currency}</li>
+            <li className="list-group-item"><strong>TimeZone:</strong> {data.timeZone}</li>
         </ul>
         </div>
       </div>

@@ -26,7 +26,9 @@ export default function GetCityData() {
   }, [fetchData, pageNumber]);
 
   async function search() {
-    const response = await fetch(`https://api-colombia.com/api/v1/City/search/${searchQuery}`);
+    const response = await fetch(
+      `https://api-colombia.com/api/v1/City/search/${searchQuery}`
+    );
     const data = await response.json();
     setSearchResults(data);
   }
