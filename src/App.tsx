@@ -19,7 +19,7 @@ function App() {
 
         <Routes>
 
-        | <Route path="*" element={<Colombia />}>
+        | <Route path="/" element={<Colombia />}>
             <Route path=":slug" element={<Colombia />} />
           </Route>
           <Route path="/departments" element={<Departments />}>
