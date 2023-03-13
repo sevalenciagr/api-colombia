@@ -40,7 +40,7 @@ export default function DepartmentsData() {
               </div>
             </div>
           </Col>
-        ))}   
+        ))}
       </Row>
     </Container>
   );

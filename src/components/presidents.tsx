@@ -23,7 +23,9 @@ export default function GetPresidentData() {
   }, [fetchData, pageNumber]);
 
   async function search() {
-    const response = await fetch(`https://api-colombia.com/api/v1/President/search/${searchQuery}`);
+    const response = await fetch(
+      `https://api-colombia.com/api/v1/President/search/${searchQuery}`
+    );
     const data = await response.json();
     setSearchResults(data);
   }
@@ -83,7 +85,7 @@ export default function GetPresidentData() {
           </div>
         ))}
       </div>
-      
+
       <div className="d-flex justify-content-center">
         <ul className="pagination">
           <li className={`page-item ${pageNumber === 1 ? "disabled" : ""}`}>
@@ -112,7 +114,6 @@ export default function GetPresidentData() {
           </li>
         </ul>
       </div>
-      
     </div>
   );
 }
