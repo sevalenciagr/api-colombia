@@ -20,7 +20,7 @@ export default function GetColombianData() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="card">
+    <div className="card mb-3">
       <div className="card-body row ">
        
         <div className="col">
