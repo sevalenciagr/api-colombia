@@ -100,7 +100,7 @@ export default function GetPresidentData() {
             <a className="page-link">{pageNumber}</a>
           </li>
           <li
-            className={`page-item ${data.length < pageSize ? "disabled" : ""}`}
+            className={`page-item ${data && data.length < pageSize ? "disabled" : ""}`}
           >
             <button
               className="page-link"

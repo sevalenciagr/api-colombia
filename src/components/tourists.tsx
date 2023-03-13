@@ -70,7 +70,7 @@ export default function GetTouristData() {
         </div>
       </form>
       <div className="row row-cols-1 row-cols-md-3 g-4 mt-5 p-4">
-        {displayData.map((item) => (
+        {displayData?.map((item) => (
           <div className="col mb-4" key={item.id}>
             <div className="card h-100">
               <img
@@ -110,7 +110,7 @@ export default function GetTouristData() {
             <a className="page-link">{pageNumber}</a>
           </li>
           <li
-            className={`page-item ${data.length < pageSize ? "disabled" : ""}`}
+            className={`page-item ${data && data.length < pageSize ? "disabled" : ""}`}
           >
             <button
               className="page-link"
