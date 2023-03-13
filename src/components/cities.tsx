@@ -7,7 +7,7 @@ export default function GetCityData() {
   const [pageNumber, setPageNumber] = useState(1);
   const [fetchData, setFetchData] = useState(false);
 
-  const pageSize = 12;
+  const pageSize = 24;
 
   useEffect(() => {
     async function fetchData() {

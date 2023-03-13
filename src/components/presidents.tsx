@@ -3,18 +3,24 @@ import { President } from "../interfaces/president";
 
 export default function GetPresidentData() {
   const [data, setData] = useState<President[]>();
+  const [pageNumber, setPageNumber] = useState(1);
   const [searchResults, setSearchResults] = useState<President[]>();
   const [searchQuery, setSearchQuery] = useState("");
+  const [fetchData, setFetchData] = useState(false);
+
+  const pageSize = 3;
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("https://api-colombia.com/api/v1/President");
+      const response = await fetch(
+        `https://api-colombia.com/api/v1/President/pagedList?page=${pageNumber}&pageSize=${pageSize}`
+      );
       const data = await response.json();
-      setData(data);
+      setData(data.data);
     }
 
     fetchData();
-  }, []);
+  }, [fetchData, pageNumber]);
 
   async function search() {
     const response = await fetch(`https://api-colombia.com/api/v1/President/search/${searchQuery}`);
@@ -78,6 +84,34 @@ export default function GetPresidentData() {
         ))}
       </div>
       
+      <div className="d-flex justify-content-center">
+        <ul className="pagination">
+          <li className={`page-item ${pageNumber === 1 ? "disabled" : ""}`}>
+            <button
+              className="page-link"
+              onClick={() => setPageNumber(pageNumber - 1)}
+            >
+              Previous
+            </button>
+          </li>
+          <li className="page-item active">
+            <a className="page-link">{pageNumber}</a>
+          </li>
+          <li
+            className={`page-item ${data.length < pageSize ? "disabled" : ""}`}
+          >
+            <button
+              className="page-link"
+              onClick={() => {
+                setPageNumber(pageNumber + 1);
+                setFetchData(!fetchData);
+              }}
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
       
     </div>
   );
