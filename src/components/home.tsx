@@ -15,7 +15,7 @@ export default function Home() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#" className="fw-bolder fs-4">
+            <Nav.Link as={Link} to="/colombia" className="fw-bolder fs-4">
               Colombia
             </Nav.Link>
             <Nav.Link as={Link} to="/departments" className="fw-bolder fs-4">
