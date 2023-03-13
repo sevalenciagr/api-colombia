@@ -5,6 +5,8 @@ import { City } from "../interfaces/city";
 export default function GetCityData() {
   const [data, setData] = useState<City[]>();
   const [pageNumber, setPageNumber] = useState(1);
+  const [searchResults, setSearchResults] = useState<City[]>();
+  const [searchQuery, setSearchQuery] = useState("");
   const [fetchData, setFetchData] = useState(false);
 
   const pageSize = 24;
@@ -23,22 +25,62 @@ export default function GetCityData() {
     fetchData();
   }, [fetchData, pageNumber]);
 
+  async function search() {
+    const response = await fetch(`https://api-colombia.com/api/v1/City/search/${searchQuery}`);
+    const data = await response.json();
+    setSearchResults(data);
+  }
+
+  function handleSearchQueryChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchQuery(event.target.value);
+  }
+
+  function handleSearchSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    search();
+  }
+
+  const displayData = searchResults ?? data;
+
   if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <Container>
+      <form onSubmit={handleSearchSubmit}>
+        <div className="mb-3">
+          <label htmlFor="searchQuery" className="form-label">
+            Search:
+          </label>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              id="searchQuery"
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
+            />
+            <button type="submit" className="btn btn-primary">
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
       <Row className="mt-5 p-4">
-        {data.map((item) => (
-          <Col key={item.id} sm={6} md={4} lg={3}>
-            <div className="card border-primary mb-3">
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
+        {displayData && displayData.length > 0 ? (
+          displayData.map((item) => (
+            <Col key={item.id} sm={6} md={4} lg={3}>
+              <div className="card border-primary mb-3">
+                <div className="card-body">
+                  <h5 className="card-title">{item.name}</h5>
+                </div>
               </div>
-            </div>
-          </Col>
-        ))}
+            </Col>
+          ))
+        ) : (
+          <div>No results found</div>
+        )}
       </Row>
 
       <div className="d-flex justify-content-center">
